@@ -1,5 +1,7 @@
-function hello(){
-    console.log('Hello world from nodejs!');
-}
+const server = require('./api/server');
 
-hello();
+const PORT = 8080;
+
+server.listen(PORT, ()=>{
+    console.log(`Listening on port ${PORT}`)
+});
