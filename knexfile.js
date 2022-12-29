@@ -3,6 +3,7 @@
 //this file is then required in wherever we make our actual queries (gonna be model files)
 
 //IE, this is for all intents and purposes our db-config.
+//well, SOMETHING aint working. Investigating...
 
 require('dotenv').config();
 

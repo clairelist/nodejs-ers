@@ -1,10 +1,12 @@
 //I yam the SERVER from which all endpoints are exposed!!
 const express = require('express');
 const server = express();
+const userRouter = require('./users/router');
 
 server.use(express.json()); //we will be using json after all! yay!!!!
 
 //ROUTERS will go here.
+server.use('/user', userRouter);
 
 server.get("/", (req, res) => {
     res.json({ api: "up" });
