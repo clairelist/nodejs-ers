@@ -1,13 +1,7 @@
-//I don't think I NEED migrations, as table creation is being done through dbeaver
-//I just need to connect to the database!
-//this file is then required in wherever we make our actual queries (gonna be model files)
-
-//IE, this is for all intents and purposes our db-config.
-//well, SOMETHING aint working. Investigating...
-
 require('dotenv').config();
 
-const knex = require('knex')({
+module.exports = {
+    development: {
     client: 'pg',
     connection: {
       host : `${process.env.DB_URL}`,
@@ -16,7 +10,7 @@ const knex = require('knex')({
       password : `${process.env.DB_PASS}`,
       database : 'postgres'
     },
-    pool: { min: 0, max: 7 }
-  });
-
-  module.exports = knex;
+    pool: { min: 0, max: 7 },
+    migrations: {directory: './data/migrations'},
+    seeds: {directory: './data/seeds'}
+  }};
