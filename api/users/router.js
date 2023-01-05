@@ -23,14 +23,11 @@ router.post('/register', async (req,res,next)=>{
   
       //store in database !
       const newUser = {
-        username,
+        email,
+        password,
         first_name,
         last_name,
-        email,
-        phone,
-        dep_id,
-        password_hash,
-        roles
+        phone_number
         };
 
       const inserted = await User.add(newUser);

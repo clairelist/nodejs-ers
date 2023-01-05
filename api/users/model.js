@@ -1,5 +1,5 @@
 //I YAM THE DB MODEL -- I COMMUNICATE WITH THE DATABASE ACTUAL!
-const lego = require('../../knexfile'); //THIS is giving us an issue. 'x is not a function'
+const lego = require('../../data/db-config'); //must get from db-config, which configures how to use our knexfile !
 
 function findById(user_id) {
     return lego('users')
