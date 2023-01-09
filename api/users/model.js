@@ -8,8 +8,10 @@ function findById(user_id) {
 }
 
 async function add(user) {
+  //AT LEAST NOW WE ARE GETTING A DIF ERROR, INVALID INPUT TYPE FOR INT BELOW (ID)
     const [id] = await lego('users').insert(user);
-    return findById(id);
+    console.log(findById(id));
+    //return findById(id);
   }
 
   module.exports = {

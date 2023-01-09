@@ -4,11 +4,10 @@ const User = require('./model');
 
 //I control account creation, login, updating user info, and one more thing Claire is not thinking of.
 
-router.post('/register', async (req,res,next)=>{
+router.post('/register', async (req, res, next)=>{
     try {
       //pull creds from req body
       const {
-        user_id,
         email,
         password,
         first_name,
@@ -21,7 +20,6 @@ router.post('/register', async (req,res,next)=>{
   
       //store in database !
       const newUser = {
-        user_id,
         email,
         password,
         first_name,
@@ -32,9 +30,9 @@ router.post('/register', async (req,res,next)=>{
       const inserted = await User.add(newUser);
   
       //then, we respond
-      res.status(200).json(inserted) //fixed to not display the hash in our front end !
+      res.status(200).json(inserted)
     } catch(err) {
-      next(err)
+      next(err); //error is going to postman because of this line. But the record is being created in the db. ARRRRRRRGGGGG
     }
   })
 
