@@ -8,14 +8,11 @@ router.post('/register', async (req,res,next)=>{
     try {
       //pull creds from req body
       const {
-        username,
+        email,
+        password,
         first_name,
         last_name,
-        email,
-        phone,
-        dep_id,
-        password_hash,
-        roles
+        phone_number
         } = req.body;
   
       //hash the passwordr! 
