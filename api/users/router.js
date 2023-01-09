@@ -8,6 +8,7 @@ router.post('/register', async (req,res,next)=>{
     try {
       //pull creds from req body
       const {
+        user_id,
         email,
         password,
         first_name,
@@ -20,6 +21,7 @@ router.post('/register', async (req,res,next)=>{
   
       //store in database !
       const newUser = {
+        user_id,
         email,
         password,
         first_name,
