@@ -9,9 +9,9 @@ function findById(user_id) {
 
 async function add(user) {
   //AT LEAST NOW WE ARE GETTING A DIF ERROR, INVALID INPUT TYPE FOR INT BELOW (ID)
-    const [id] = await lego('users').insert(user);
-    console.log(findById(id));
-    //return findById(id);
+    const [user_id] = await lego('users').insert(user);
+   // console.log(findById(id));
+    return findById(user_id);
   }
 
   module.exports = {
