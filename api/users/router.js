@@ -32,10 +32,11 @@ router.post('/register', async (req, res, next)=>{
       const inserted = await User.add(newUser);
   
       //then, we respond
-      res.status(200).json(inserted)
+      res.status(200).json(inserted);
+
     } catch(err) {
       next(err); //error is going to postman because of this line. But the record is being created in the db. ARRRRRRRGGGGG
     }
-  })
+  });
 
   module.exports = router;

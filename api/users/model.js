@@ -7,11 +7,9 @@ function findById(user_id) {
       .first();
 }
 
-async function add(user) {
-  //AT LEAST NOW WE ARE GETTING A DIF ERROR, INVALID INPUT TYPE FOR INT BELOW (ID)
-    const [user_id] = await lego('users').insert(user);
-   // console.log(findById(id));
-    return findById(user_id);
+function add(user) {
+  //POSTGRESQL USES A DIFFERENT SYNTAX, BECAUSE OF FUCKING COURSE IT DOES.
+    return lego('users').insert(user, '*'); //RETURNING * IE 
   }
 
   module.exports = {
