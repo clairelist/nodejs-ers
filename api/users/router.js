@@ -1,6 +1,7 @@
 //I AM THE USER ROUTER! WOOOOO
 const router = require('express').Router();
 const User = require('./model');
+const {checkPassword} = require('./middlewares');
 
 //I control account creation, login, updating user info, and one more thing Claire is not thinking of.
 
@@ -38,5 +39,9 @@ router.post('/register', async (req, res, next)=>{
       next(err); //error is going to postman because of this line. But the record is being created in the db. ARRRRRRRGGGGG
     }
   });
+
+  router.post('/login', async, checkPassword, (req, res, next)=>{
+
+  })
 
   module.exports = router;
