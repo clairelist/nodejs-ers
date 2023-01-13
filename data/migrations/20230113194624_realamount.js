@@ -3,9 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    // return knex.schema.alterTable('tickets', function (tickets){
-    //     tickets.string('amount', 5);
-    // })
+    return knex.schema.alterTable('tickets', function (tickets){
+        tickets.dropColumn('amount');
+        tickets.string('full_amount', 16);
+    })
 };
 
 /**
@@ -13,7 +14,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.alterTable('tickets', function (tickets){
-    tickets.dropColumn('amount');
-  })
+  
 };
