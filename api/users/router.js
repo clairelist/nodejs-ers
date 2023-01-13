@@ -36,12 +36,13 @@ router.post('/register', async (req, res, next)=>{
       res.status(201).json(inserted);
 
     } catch(err) {
-      next(err); //error is going to postman because of this line. But the record is being created in the db. ARRRRRRRGGGGG
+      next(err); 
     }
   });
 
   router.post('/login', async, checkPassword, (req, res, next)=>{
-
+      //hash the passwordr! 
+      //const hash = bcrypt.hashSync(password, 8); //pass the thing being hashed, then the number of passes
   })
 
   module.exports = router;
