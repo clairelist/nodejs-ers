@@ -8,12 +8,12 @@ router.post('/register', async (req, res, next)=>{
     try {
       //pull creds from req body
       const {
-        
         email,
         password,
         first_name,
         last_name,
-        phone_number
+        phone_number,
+        role
         } = req.body;
   
       //hash the passwordr! 
@@ -21,12 +21,12 @@ router.post('/register', async (req, res, next)=>{
   
       //store in database !
       const newUser = {
-        
         email,
         password,
         first_name,
         last_name,
-        phone_number
+        phone_number,
+        role
         };
 
       const inserted = await User.add(newUser);

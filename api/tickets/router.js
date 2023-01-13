@@ -9,6 +9,15 @@ router.get('/viewall', async (req, res, next)=>{
     } catch (err) {
         next(err);
     }
+});
+
+router.post('/new', async (req, res, next)=>{
+    try {
+        const inserted = await Ticket.add(req.body); //this SHOULD work, will need to actually play with later...
+        res.status(201).json(inserted);
+    } catch (err) {
+        next(err);
+    }
 })
 
 module.exports = router;
