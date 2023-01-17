@@ -43,6 +43,13 @@ router.post('/register', async (req, res, next)=>{
   router.post('/login', async, checkPassword, (req, res, next)=>{
       //hash the passwordr! 
       //const hash = bcrypt.hashSync(password, 8); //pass the thing being hashed, then the number of passes
+
+      //returns a token to be used by application.
+  })
+
+  router.post('/logout', async, (req, res, next)=>{
+    //destroy / invalidate token of user.
+    //passed in req.headers.authorization
   })
 
   module.exports = router;
