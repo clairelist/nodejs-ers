@@ -12,7 +12,12 @@ function add(user) {
     return lego('users').insert(user, '*'); //RETURNING * IE 
   }
 
+  function findByFilter(filter) {
+    return lego('users').where(filter);
+  }
+
   module.exports = {
     add,
     findById,
+    findByFilter
   }

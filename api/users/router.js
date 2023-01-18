@@ -79,9 +79,9 @@ router.post('/register', async (req, res, next)=>{
       //returns a token to be used by application.
   })
 
-  router.post('/logout', async, (req, res, next)=>{
-    //destroy / invalidate token of user.
-    //passed in req.headers.authorization
-  })
+  // router.post('/logout', async, (req, res, next)=>{
+  //   //destroy / invalidate token of user.
+  //   //passed in req.headers.authorization
+  // })
 
   module.exports = router;
