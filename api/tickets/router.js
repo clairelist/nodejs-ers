@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const Ticket = require('./model');
+const {restricted} = require('./middlewares');
 
-router.get('/viewall', async (req, res, next)=>{
+router.get('/viewall', restricted, async (req, res, next)=>{ //only a MANAGER should be able to view ALL tix.
     //get ALL tickets, used for testing I think.
     try {
        const tix = await Ticket.getAll();
@@ -11,7 +12,12 @@ router.get('/viewall', async (req, res, next)=>{
     }
 });
 
-router.post('/new', async (req, res, next)=>{
+router.get('/:userid', async (req, res, next)=>{ //get by user id, to see all tix by that user.
+    //req.params.userid = user_id
+    //getAllTixByUser(user_id)
+})
+
+router.post('/new', restricted, async (req, res, next)=>{
     try {
         const inserted = await Ticket.add(req.body); //this SHOULD work, will need to actually play with later...
         res.status(201).json(inserted);

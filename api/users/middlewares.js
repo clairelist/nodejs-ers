@@ -12,7 +12,7 @@ const { JWT_SECRET } = require('./secret');
 
 
 function checkPassword(req, res, next){
-
+ //this is for a restricted route
     let token = req.headers.authorization;
 
     if (!token){ //error checking...
