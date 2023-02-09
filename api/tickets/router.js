@@ -26,9 +26,11 @@ router.post('/new', restricted, async (req, res, next)=>{
     }
 })
 
+//user will first VIEW a single TICKET, then use that ID to UPDATE the STATUS!
+//todo: build viewById route!
 router.patch('/:id', restricted, async (req, res, next)=>{
     try {
-        const updated = await Ticket.update(req.params.id, req.body); //TODO: MUST TEST THIS!
+        const updated = await Ticket.update(req.params.id, req.body.status); //TODO: MUST TEST THIS!
         res.status(200).json(updated);
     } catch (err) {
         next(err); //TODO: BUILD ERROR HANDLING!
