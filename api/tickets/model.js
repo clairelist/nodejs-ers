@@ -8,6 +8,10 @@ function add(ticket){
     return lego('tickets').insert(ticket, '*'); //RETURNING * IE 
 }
 
+function update(id, body){
+    return lego('tickets').update(body, '*').where('ticket_id', id);
+}
+
 module.exports = {
     getAll,
     add

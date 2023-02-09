@@ -26,4 +26,13 @@ router.post('/new', restricted, async (req, res, next)=>{
     }
 })
 
+router.patch('/:id', restricted, async (req, res, next)=>{
+    try {
+        const updated = await Ticket.update(req.params.id, req.body); //TODO: MUST TEST THIS!
+        res.status(200).json(updated);
+    } catch (err) {
+        next(err); //TODO: BUILD ERROR HANDLING!
+    }
+})
+
 module.exports = router;
