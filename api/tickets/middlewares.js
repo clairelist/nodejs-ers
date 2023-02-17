@@ -1,5 +1,7 @@
 //restricted, which does not allow access if req.headers.auth token is not supplied
 // --> view own tix, create ticket
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('./secret');
 
 function restricted(req, res, next){
     //this is for a restricted route
