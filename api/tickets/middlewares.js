@@ -24,9 +24,19 @@ function restricted(req, res, next){
 
 
 //checkRole, prevents non-managers from updating tickets --> updateTicket, viewByStatus ?
+function checkRole(req, res, next){
+    let email = req.body.email;
+    let user = User.findByFilter(email);
 
+    if (user.role !== 'MANAGER'){
+        res.status(403).json({message: 'You do not have permission to perform this action'});
+    } else {
+        next();
+    }
+}
 //checkOwner, restricts access to updating own ticket --> updateTicket <put into restricted middleware??>
 
 module.exports = {
     restricted,
+    checkRole
 }
